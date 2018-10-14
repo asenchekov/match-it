@@ -1,13 +1,16 @@
 <review>
     <style>
+        .photolist-wrapper{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, auto));
+            grid-gap: 15px;
+        }
         .cardframe{
-            display: block;
             background-color: white;
             float: left;
-            margin: 7px;
             border-radius: 5px;
-            padding: 5px;
             position: relative;
+            overflow: hidden;
         }
         .symbol{
             position: absolute;
