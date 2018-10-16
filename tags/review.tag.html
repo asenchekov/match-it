@@ -1,10 +1,5 @@
 <review>
     <style>
-        .photolist-wrapper{
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, auto));
-            grid-gap: 15px;
-        }
         .cardframe{
             background-color: white;
             float: left;
@@ -56,9 +51,7 @@
                     <div each={ symbol in card} class="symbol trans"  h={readSymbol(symbol).size.height} w={readSymbol(symbol).size.width}  
                         weight={ Math.abs(calculateWeight( readSymbol(symbol).size )) }>
                         <img  src={ readSymbol(symbol,true).src }>
-                        
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -109,6 +102,13 @@
             //$(".ui-resizable-handle").hide(); hiding this causes the card to not have a drag handle after clicking on generate
             $(".cardframe").mouseover( function(e) {
                 $(this).find(".resizeHandle, .ui-rotatable-handle, .ui-resizable-handle").show();
+            });
+
+            // Fixing the cards grid
+            $(".photolist-wrapper").css({
+                "display" : "grid",
+                "grid-template-columns" : `repeat(auto-fill, minmax(${this.frame.width}px, auto))`,
+                "grid-gap": "15px"
             });
 
             $(".cardframe").mouseout( function(e) {
